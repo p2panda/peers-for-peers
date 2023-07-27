@@ -63,7 +63,9 @@ export async function getAllEvents(
   events: Paginated<Event>;
 }> {
   const fromTimestamp = DateTime.fromFormat(from, 'yyyy-MM-dd').toMillis();
-  const toTimestamp = DateTime.fromFormat(to, 'yyyy-MM-dd').toMillis();
+  const toTimestamp = DateTime.fromFormat(to, 'yyyy-MM-dd')
+    .endOf('day')
+    .toMillis();
 
   const query = gql`{
     events: all_${EVENTS_SCHEMA_ID}(

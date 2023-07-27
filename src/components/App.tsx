@@ -93,9 +93,7 @@ export const App = () => {
   const handleFilter = (event: MouseEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLButtonElement;
     const from = target.getAttribute('data-date');
-    const to = DateTime.fromFormat(from, 'yyyy-MM-dd')
-      .plus({ days: 1 })
-      .toFormat('yyyy-MM-dd');
+    const to = from;
 
     setSearchValue('');
 
