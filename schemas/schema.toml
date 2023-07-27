@@ -1,0 +1,29 @@
+[events]
+description = "Proposed event for an unconference"
+
+[events.fields]
+title = { type = "str" }
+location = { type = "str" }
+description = { type = "str" }
+happening_at = { type = "int" }
+created_at = { type = "int" }
+
+[reactions]
+description = "Show your interest in an event"
+
+[reactions.fields]
+event = { type = "relation", schema = { name = "events" } }
+
+[comments]
+description = "Comment on an event"
+
+[comments.fields]
+text = { type = "str" }
+event = { type = "relation", schema = { name = "events" } }
+created_at = { type = "int" }
+
+[profiles]
+description = "User profile"
+
+[profiles.fields]
+username = { type = "str" }
