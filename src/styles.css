@@ -153,7 +153,7 @@ code {
 }
 
 .panel .panel-toggle::after {
-  content: '🮦';
+  content: '⬇️';
 }
 
 .panel-hidden {
@@ -161,7 +161,7 @@ code {
 }
 
 .panel-expanded .panel-toggle::after {
-  content: '🮧';
+  content: '⬆️';
 }
 
 .panel-expanded .panel-content {

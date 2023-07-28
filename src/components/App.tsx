@@ -146,7 +146,7 @@ export const App = () => {
           className="button square-button refresh"
           onClick={handleRefresh}
         >
-          ⭯
+          🎡
         </button>
       </header>
       <Panel
