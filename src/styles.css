@@ -86,6 +86,7 @@ button + button {
   border-color: var(--color-light-gray);
   border-radius: 5px;
   border-style: outset;
+  color: var(--color-black);
 }
 
 .button[disabled] {
