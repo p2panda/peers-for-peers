@@ -67,7 +67,7 @@ const Comment = ({ comment }: { comment: Doc<Comment> }) => {
   );
 
   return (
-    <div className="comment">
+    <div>
       <p>
         {date} by {username}
       </p>
