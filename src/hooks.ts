@@ -17,6 +17,7 @@ import {
 } from './constants';
 import {
   countReactions,
+  createComment as createCommentRequest,
   createProfile,
   createReaction,
   deleteProfile,
@@ -261,9 +262,8 @@ export function useComments(
 ): PaginationHook<Comment> & {
   createComment: (fields: Comment) => Promise<void>;
 } {
-  const { client } = usePanda();
-  const { cache } = useContext(CacheContext);
-  const create = useCreate<Comment>(COMMENTS_SCHEMA_ID);
+  const { publicKey, client, session } = usePanda();
+  const { cache, setCache } = useContext(CacheContext);
   const [localDocuments, setLocalDocuments] = useState<DocumentViewId[]>([]);
 
   const request = useCallback(
@@ -286,10 +286,28 @@ export function useComments(
 
   const createComment = useCallback(
     async (fields: Comment) => {
-      const viewId = await create(fields);
+      const viewId = await createCommentRequest(session, fields);
+
+      setCache((cache) => {
+        return {
+          ...cache,
+          [COMMENTS_SCHEMA_ID]: {
+            ...cache[COMMENTS_SCHEMA_ID],
+            [viewId as string]: {
+              meta: {
+                documentId: viewId as string,
+                viewId,
+                owner: publicKey,
+              },
+              fields,
+            },
+          },
+        };
+      });
+
       setLocalDocuments((list) => [...list, viewId]);
     },
-    [create],
+    [publicKey, session, setCache],
   );
 
   const documents = [
