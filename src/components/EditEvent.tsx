@@ -16,7 +16,7 @@ import type { Event } from '../types';
 
 const convertValues = (fields: Event) => {
   const { title, location, description, happening_at } = fields;
-  const date = DateTime.fromMillis(happening_at);
+  const date = DateTime.fromSeconds(happening_at);
 
   return {
     title,

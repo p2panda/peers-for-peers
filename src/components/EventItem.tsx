@@ -18,7 +18,7 @@ export const EventItem = ({ documentId }: Props) => {
       return '';
     }
 
-    return DateTime.fromMillis(document.fields.happening_at).toFormat(
+    return DateTime.fromSeconds(document.fields.happening_at).toFormat(
       'dd.MM.yy HH:mm',
     );
   }, [document]);

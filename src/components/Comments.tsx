@@ -62,7 +62,7 @@ export const Comments = ({ selected }: Props) => {
 
 const Comment = ({ comment }: { comment: Doc<Comment> }) => {
   const username = useUsername(comment.meta.owner);
-  const date = DateTime.fromMillis(comment.fields.created_at).toFormat(
+  const date = DateTime.fromSeconds(comment.fields.created_at).toFormat(
     'dd.MM.yy HH:mm',
   );
 
