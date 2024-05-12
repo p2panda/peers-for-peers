@@ -14,7 +14,7 @@
         created_at
       }
     }
-  }`;return yield(0,E.request)(A,g)}))},B.getAllEvents=function(A){return Q(this,arguments,void 0,(function*(A,B=i.MIN_DATE,g=i.MAX_DATE,Q,C,o=10){const e=D.DateTime.fromFormat(B,"yyyy-MM-dd").toSeconds(),w=D.DateTime.fromFormat(g,"yyyy-MM-dd").endOf("day").toSeconds(),a=I.gql`{
+  }`;return yield(0,E.request)(A,g)}))},B.getAllEvents=function(A){return Q(this,arguments,void 0,(function*(A,B=i.MIN_DATE,g=i.MAX_DATE,Q,C,o=10){const e=D.DateTime.fromFormat(B,"yyyy-MM-dd").toSeconds(),w=Math.round(D.DateTime.fromFormat(g,"yyyy-MM-dd").endOf("day").toSeconds()),a=I.gql`{
     events: all_${i.EVENTS_SCHEMA_ID}(
       first: ${o}
       ${C?`after: "${C}"`:""}
