@@ -52,8 +52,8 @@ export const CreateEvent = ({ onCreated }: Props) => {
       title,
       location,
       description,
-      created_at: DateTime.now().toSeconds(),
-      happening_at: DateTime.fromISO(`${date}T${time}`).toSeconds(),
+      created_at: Math.round(DateTime.now().toSeconds()),
+      happening_at: Math.round(DateTime.fromISO(`${date}T${time}`).toSeconds()),
     });
 
     setValues(initialValues());

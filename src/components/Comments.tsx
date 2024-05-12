@@ -25,7 +25,7 @@ export const Comments = ({ selected }: Props) => {
 
     createComment({
       text,
-      created_at: DateTime.now().toSeconds(),
+      created_at: Math.round(DateTime.now().toSeconds()),
       event: selected.meta.documentId,
     });
 

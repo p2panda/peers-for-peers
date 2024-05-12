@@ -62,7 +62,9 @@ export async function getAllEvents(
 ): Promise<{
   events: Paginated<Event>;
 }> {
-  const fromTimestamp = DateTime.fromFormat(from, 'yyyy-MM-dd').toSeconds();
+  const fromTimestamp = Math.round(
+    DateTime.fromFormat(from, 'yyyy-MM-dd').toSeconds(),
+  );
   const toTimestamp = Math.round(
     DateTime.fromFormat(to, 'yyyy-MM-dd').endOf('day').toSeconds(),
   );

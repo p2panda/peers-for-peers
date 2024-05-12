@@ -64,7 +64,7 @@ export const EditEvent = ({ onUpdated, onDeleted, documentId }: Props) => {
       title,
       location,
       description,
-      happening_at: DateTime.fromISO(`${date}T${time}`).toSeconds(),
+      happening_at: Math.round(DateTime.fromISO(`${date}T${time}`).toSeconds()),
     };
 
     return Object.keys(fields).reduce((acc, name) => {
