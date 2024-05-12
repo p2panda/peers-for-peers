@@ -9,7 +9,7 @@ export const COMMENTS_SCHEMA_ID =
   'comments_0020412850392f504a2ed54a780bedf2d7807f067dc7b47fbe14aa37ed9784276503';
 
 // URL of your local aquadoggo node
-export const ENDPOINT = 'http://localhost:2020/graphql';
+export const ENDPOINT = process.env.ENDPOINT || 'http://localhost:2020/graphql';
 
 // Time-range of the unconference event
 export const MIN_DATE = '2024-05-24';

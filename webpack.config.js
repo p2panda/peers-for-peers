@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 
 module.exports = () => {
   return {
@@ -26,6 +27,9 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         title: "It's unconference time!",
         favicon: 'favicon.ico',
+      }),
+      new DefinePlugin({
+        'process.env.ENDPOINT': JSON.stringify(process.env.ENDPOINT),
       }),
     ],
   };
