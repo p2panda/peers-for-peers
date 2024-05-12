@@ -32,7 +32,7 @@ jobs:
       - name: Build website
         env:
           # Point peers-for-peers website client at shared (federated) p2panda node
-          ENDPOINT: https://welle.liebechaos.org/graphql
+          ENDPOINT: 'https://welle.liebechaos.org/graphql'
         run: npm run build
 
       - name: Deploy website
