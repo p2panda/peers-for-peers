@@ -62,10 +62,10 @@ export async function getAllEvents(
 ): Promise<{
   events: Paginated<Event>;
 }> {
-  const fromTimestamp = DateTime.fromFormat(from, 'yyyy-MM-dd').toMillis();
+  const fromTimestamp = DateTime.fromFormat(from, 'yyyy-MM-dd').toSeconds();
   const toTimestamp = DateTime.fromFormat(to, 'yyyy-MM-dd')
     .endOf('day')
-    .toMillis();
+    .toSeconds();
 
   const query = gql`{
     events: all_${EVENTS_SCHEMA_ID}(
