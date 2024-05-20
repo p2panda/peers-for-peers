@@ -33,7 +33,7 @@ jobs:
         run: npm install
 
       - name: edit config.toml file
-        run: sed -i 's/# DIRECT_NODE_ADDRESSES/${{ secrets.DIRECT_NODE_ADDRESSES }}/' src-tauri/resources/config.toml
+        run: sed -i'' 's/# DIRECT_NODE_ADDRESSES/${{ secrets.DIRECT_NODE_ADDRESSES }}/' src-tauri/resources/config.toml
 
       - uses: tauri-apps/tauri-action@v0
         env:
