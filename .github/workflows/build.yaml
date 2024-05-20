@@ -1,8 +1,6 @@
-name: Release
-on:
-  push:
-    tags:
-      - 'v*'
+name: Build
+
+on: push
 
 jobs:
   release:
@@ -33,6 +31,9 @@ jobs:
 
       - name: install frontend dependencies
         run: npm install
+
+      - name: edit config.toml file
+        run: sed -i 's/# DIRECT_NODE_ADDRESSES/${{ env.DIRECT_NODE_ADDRESSES }}/' src-tauri/resources/config.toml
 
       - uses: tauri-apps/tauri-action@v0
         env:

@@ -152,7 +152,7 @@ mdns = true
 # firewall or NAT, do not use this field but use at least one relay.
 #
 direct_node_addresses = [
-    # "192.0.2.2:3000",
+    # DIRECT_NODE_ADDRESSES
 ]
 
 # List of peers which are allowed to connect to your node.
