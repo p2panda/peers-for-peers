@@ -14,7 +14,7 @@
         created_at
       }
     }
-  }`;return yield(0,E.request)(A,g)}))},B.getAllEvents=function(A){return Q(this,arguments,void 0,(function*(A,B=i.MIN_DATE,g=i.MAX_DATE,Q,C,o=10){const e=Math.round(D.DateTime.fromFormat(B,"yyyy-MM-dd").toSeconds()),w=Math.round(D.DateTime.fromFormat(g,"yyyy-MM-dd").endOf("day").toSeconds()),a=I.gql`{
+  }`;return yield(0,E.request)(A,g)}))},B.getAllEvents=function(A){return Q(this,arguments,void 0,(function*(A,B=i.MIN_DATE,g=i.MAX_DATE,Q,C,o=25){const e=Math.round(D.DateTime.fromFormat(B,"yyyy-MM-dd").toSeconds()),w=Math.round(D.DateTime.fromFormat(g,"yyyy-MM-dd").endOf("day").toSeconds()),a=I.gql`{
     events: all_${i.EVENTS_SCHEMA_ID}(
       first: ${o}
       ${C?`after: "${C}"`:""}
@@ -86,7 +86,7 @@
         }
       }
     }
-  }`;return yield(0,E.request)(A,Q)}))},B.deleteReaction=function(A,B){return Q(this,void 0,void 0,(function*(){return yield A.delete(B,{schemaId:i.REACTIONS_SCHEMA_ID})}))},B.createComment=function(A,B){return Q(this,arguments,void 0,(function*(A,{text:B,created_at:g,event:Q}){const I=new C.OperationFields({text:B,created_at:g});return I.insert("event","relation",Q),yield A.create(I,{schemaId:i.COMMENTS_SCHEMA_ID})}))},B.getComments=function(A,B,g){return Q(this,arguments,void 0,(function*(A,B,g,Q=10){const C=I.gql`{
+  }`;return yield(0,E.request)(A,Q)}))},B.deleteReaction=function(A,B){return Q(this,void 0,void 0,(function*(){return yield A.delete(B,{schemaId:i.REACTIONS_SCHEMA_ID})}))},B.createComment=function(A,B){return Q(this,arguments,void 0,(function*(A,{text:B,created_at:g,event:Q}){const I=new C.OperationFields({text:B,created_at:g});return I.insert("event","relation",Q),yield A.create(I,{schemaId:i.COMMENTS_SCHEMA_ID})}))},B.getComments=function(A,B,g){return Q(this,arguments,void 0,(function*(A,B,g,Q=25){const C=I.gql`{
     comments: all_${i.COMMENTS_SCHEMA_ID}(
       first: ${Q}
       ${g?`after: "${g}"`:""}
