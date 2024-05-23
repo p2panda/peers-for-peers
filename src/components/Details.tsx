@@ -18,7 +18,7 @@ export const Details = ({ selected }: Props) => {
       </div>
       <div className="detail">
         <h3 className="detail-title">Comments</h3>
-        <Comments selected={selected} />
+        <Comments key={selected.meta.documentId} selected={selected} />
       </div>
       <div className="detail">
         <h3 className="detail-title">Fun!</h3>
