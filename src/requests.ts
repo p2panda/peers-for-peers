@@ -15,7 +15,7 @@ import type { Doc, Paginated } from './p2panda/types';
 import type { Comment, Event, Profile, Reaction } from './types';
 import { DateTime } from 'luxon';
 
-const DEFAULT_PAGE_SIZE = 10;
+const DEFAULT_PAGE_SIZE = 25;
 
 // Events
 
