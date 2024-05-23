@@ -13,7 +13,13 @@ type Props = {
 };
 
 export const EventsList = ({ events, selected, onSelect }: Props) => {
-  return events.map((event) => {
+  // Hacky workaround to sort the events _again_, they should come sorted from
+  // the GraphQL query, but I don't have time to troubleshoot this for now :-P
+  const sorted = events.sort((eventA, eventB) => {
+    return eventA.fields.happening_at - eventB.fields.happening_at;
+  });
+
+  return sorted.map((event) => {
     const handleSelect = () => {
       if (event === selected) {
         onSelect(undefined);
